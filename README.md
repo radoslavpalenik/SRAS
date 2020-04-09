@@ -1,5 +1,5 @@
 # Steam Recent Activity Scraper
-Scraper showing players exact time spent in every game they played on Steam in last 2 weeks.
+Scraper showing players exact time spent in every game they played on Steam during last 2 weeks.
 
 ## Setup
 Script needs these modules to work properly:
