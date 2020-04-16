@@ -1,7 +1,7 @@
 # Steam Recent Activity Scraper
 Scraper showing players exact time spent in every game they played on Steam during last 2 weeks.
 
-## Setup
+## Setup (Windows)
 Script needs these things to work properly:
 * working SteamID
 * Python3

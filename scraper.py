@@ -4,20 +4,21 @@ import re
 import argparse
 
 try:
-    import bs4 as bs
+    import bs4
 except:
-    os.system('python -m pip install bs4')
+    os.system('pip3 install bs4')
 
 try:
    import selenium
 except:
-    os.system('python -m pip install selenium')
+    os.system('pip3 install selenium')
      
 try:
-    from pathlib import Path
+    import pathlib
 except:
-    os.system('python -m pip install Path')
+    os.system('pip3 install pathlib')
 
+from pathlib import Path
 from selenium import webdriver
 
 
@@ -44,7 +45,7 @@ driver.get(url)
 driver.execute_script("document.head.parentNode.removeChild(document.head)")
 
 html = driver.page_source
-soup = bs.BeautifulSoup(html, 'html.parser')
+soup = bs4.BeautifulSoup(html, 'html.parser')
 
 lol = soup.find_all(class_="gameListRowItem")
 driver.quit()
