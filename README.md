@@ -9,6 +9,5 @@ Script needs these things to work properly:
 
 ## Usage
 To run script properly, run with python3 like:
-python3 scraper.py SteamID
-`
+`python3 scraper.py SteamID`
 in your terminal
