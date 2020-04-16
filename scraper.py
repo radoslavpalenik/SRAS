@@ -1,13 +1,31 @@
-import bs4 as bs
-import re
-from selenium import webdriver
+import os
 import sys
+import re
 import argparse
+
+try:
+    import bs4 as bs
+except:
+    os.system('python -m pip install bs4')
+
+try:
+   import selenium
+except:
+    os.system('python -m pip install selenium')
+     
+try:
+    from pathlib import Path
+except:
+    os.system('python -m pip install Path')
+
+from selenium import webdriver
+
 
 if  len(sys.argv) != 2:
     print("Invalid count of arguments inserted\nInsert only SteamID to run script properly")
     sys.exit(1)
 
+PATH_FOLDER = Path(r'./')
 
 parser = argparse.ArgumentParser()
 parser.add_argument("name")
@@ -29,9 +47,9 @@ html = driver.page_source
 soup = bs.BeautifulSoup(html, 'html.parser')
 
 lol = soup.find_all(class_="gameListRowItem")
-#driver.quit()
+driver.quit()
 
-totalRecentHours = 0.000000000
+totalRecentHours = 0.00
 
 print("------------------------------------------------------")
 
@@ -48,13 +66,13 @@ for f in lol:
         except:
             continue
 
-        print("| " + f.find(class_="gameListRowItemName").string.encode("utf-8")) 
+        print("| " , f.find(class_="gameListRowItemName").string) 
 
-        print("| " + recentHours + "h\n------------------------------------------------------")
+        print("| " , recentHours + "h\n------------------------------------------------------")
 
         totalRecentHours = totalRecentHours + float(recentHours)
 
 if totalRecentHours > 0:  
-    print("\n| Total hours in recent 2 weeks on Steam spent by playing games:\n| " + str(totalRecentHours))
+    print("\n| Total hours in recent 2 weeks on Steam spent by playing games:\n| " , totalRecentHours)
 else:
     print("\n| Not-existing SteamID or No record of playing games on Steam for last 2 weeks.")
